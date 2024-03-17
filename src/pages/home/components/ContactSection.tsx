@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ const ContactSection = () => {
         message: '',
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e:any) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -21,7 +21,7 @@ const ContactSection = () => {
         }));
     };
 
-    const handleBlur = (e) => {
+    const handleBlur = (e:any) => {
         const { name, value } = e.target;
         // Perform validation on blur (e.g., checking for empty fields or valid email format)
         if (name === 'name' && !value.trim()) {
@@ -47,7 +47,7 @@ const ContactSection = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:any) => {
         e.preventDefault();
         // Implement form submission logic here
         console.log(formData);
@@ -78,7 +78,7 @@ const ContactSection = () => {
                     </div>
                     <div className="mb-6">
                         <label htmlFor="message" className="block mb-2 text-sm font-medium text-text">Your Message</label>
-                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows="4" required
+                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows={4} required
                             className={`form-input w-full text-background p-3 text-sm border-gray-300 rounded-lg focus:ring-primary focus:border-primary ${formErrors.message ? 'border-red-500' : ''}`} ></textarea>
                         {formErrors.message && <span className="text-sm text-red-500">{formErrors.message}</span>}
                     </div>

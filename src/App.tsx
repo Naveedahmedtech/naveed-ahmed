@@ -5,7 +5,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import CursorTrail from './components/CursorTrail';
-import CustomCursor from './components/CustomCursor';
 
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
   return (
     <>
       <CursorTrail />
-      {/* <CustomCursor /> */}
       <RouterProvider router={router}></RouterProvider>
     </>
   )

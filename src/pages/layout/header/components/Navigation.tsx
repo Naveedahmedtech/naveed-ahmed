@@ -10,7 +10,10 @@ const Navigation = () => {
 
     // Refs for navigation links for direct DOM access if needed
     const navRefs = useRef([]);
-    navRefs.current = navLinks.map((link, i) => navRefs.current[i] ?? createRef());
+    navRefs.current = navLinks.map((link, i) => {
+        console.log(link)
+        return navRefs.current[i] ?? createRef()
+    });
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,7 +46,7 @@ const Navigation = () => {
     return (
         <nav>
             <div className="flex justify-between items-center">
-                <ul className={`flex items-center space-x-6 mr-6 hidden md:flex`}>
+                <ul className={`items-center space-x-6 mr-6 hidden md:flex`}>
                     {navLinks.map((link, index) => (
                         <li key={index}>
                             <a href={link.href} className={`nav-link ${activeLink === link.href ? 'active' : ''}`}>
@@ -53,7 +56,7 @@ const Navigation = () => {
                     ))}
                 </ul>
                 <ThemeToggle />
-                <button onClick={toggleMobileMenu} className="md:hidden">
+                <button onClick={toggleMobileMenu} className="md:hidden ml-4">
                     <MenuIcon />
                 </button>
             </div>

@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router-dom';
 import Logo from './components/Logo';
 import Navigation from './components/Navigation';
 import Home from '../../home/Home';

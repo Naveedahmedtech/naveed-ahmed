@@ -1,5 +1,3 @@
-import React from 'react'
-
 // MoonIcon with animation class added
 export const MoonIcon = () => {
     return (

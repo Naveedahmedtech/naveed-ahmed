@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import cv from "../../../assets/images/naveed.pdf";
+import { useState, useEffect } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 import '../css/style.css'

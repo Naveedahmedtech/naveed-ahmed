@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const CustomCursor = () => {
-    const cursorRef = useRef(null);
-    const ringRef = useRef(null);
+    const cursorRef = useRef<any>(null);
+    const ringRef = useRef<any>(null);
 
     useEffect(() => {
         const handleMouseEnter = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { projects } from '../../../utils/home';
 import ProjectCard from './ProjectCard';
 
@@ -8,7 +7,7 @@ const ProjectsSection = () => {
             <div className="container mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-10">Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <ProjectCard project={project} />
                         // <div key={project.id} className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer transform transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay={`${index * 100}`}>
                         //     <img src={project.image} alt={project.name} className="w-full h-64 object-cover" loading="lazy" />
