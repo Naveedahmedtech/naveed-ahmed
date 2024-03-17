@@ -1,18 +1,23 @@
-import AutoThemeAdjuster from "./Example"
-import ThemeToggleButton from "./ThemeToggle"
-import ThemeToggle from "./ThemeToggle"
+import { RouterProvider } from 'react-router-dom';
+import './App.css'
+import { router } from './router/routes';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+import CursorTrail from './components/CursorTrail';
+import CustomCursor from './components/CustomCursor';
+
 
 function App() {
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className='flex'>
-      <div className="App">
-        <header className="App-header">
-          <ThemeToggleButton />
-          <h1 className="">React Theme Toggle Example</h1>
-        </header>
-      </div>
-    </div>
+    <>
+      <CursorTrail />
+      {/* <CustomCursor /> */}
+      <RouterProvider router={router}></RouterProvider>
+    </>
   )
 }
 

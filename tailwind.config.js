@@ -9,6 +9,7 @@ export default {
         secondary: "var(--color-secondary)",
         background: "var(--color-background)",
         text: "var(--color-text)",
+        bgWhite: "var(--color-bg-white)",
       },
     },
   },

@@ -8,11 +8,302 @@
     --color-secondary: #f59e0b;
     --color-background: #f3f4f6;
     --color-text: #1f2937;
+    --color-bg-white: #FFFF;
 }
 
 .dark {
-    --color-primary: #93c5fd;
+    --color-primary: #3b82f6;
+    /* --color-primary: #93c5fd; */
     --color-secondary: #fcd34d;
     --color-background: #1f2937;
+    --color-bg-white: #1f2937;
     --color-text: #f3f4f6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.text-center md:text-left {
+    transition: none;
+}
+
+/* Apply a class to the h1 wrapping the Typical component */
+.typing-text {
+    min-width: 250px;
+    /* Adjust based on your layout */
+    display: inline-block;
+}
+
+.hero-section {
+    min-height: calc(100vh - 100px);
+}
+
+/* nav links */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--color-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link.active,
+.nav-link.active::after {
+    color: var(--color-primary);
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* mobile navigation */
+
+
+/* icons animation */
+
+.animate-moon {
+    transition: transform 0.3s ease;
+}
+
+.animate-moon:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.animate-sun {
+    transition: transform 0.3s ease;
+}
+
+.animate-sun:hover {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+
+.hover-effect {
+    transition: transform 0.5s ease, stroke 0.5s ease;
+    transform-origin: center;
+}
+
+.hover-effect:hover {
+    transform: rotate(180deg) scale(1.3);
+    stroke: var(--color-primary);
+}
+
+.menu-animate:hover .line1 {
+    transform: rotate(-5deg);
+}
+
+.menu-animate:hover .line2 {
+    transform: scaleX(1.1);
+}
+
+/* Since the third line is now shorter, let's give it a more pronounced effect, like a slight nudge upwards */
+.menu-animate:hover .line3 {
+    transform: translateY(-2px);
+}
+
+.menu-animate .line1,
+.menu-animate .line2,
+.menu-animate .line3 {
+    transition: transform 0.3s ease;
+}
+
+
+
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient {
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb, #a1c4fd);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+
+
+/* inputs */
+input,
+textarea {
+    transition: border-color 0.3s ease;
+    border: 2px solid #ddd;
+    /* Light gray border */
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    /* Highlight color on focus */
+}
+
+button:hover {
+    transform: translateY(-2px);
+    /* Slight lift effect on hover */
+}
+
+
+
+
+.cursor-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.trail {
+    position: absolute;
+    width: 10px;
+    /* Adjust width of the trail */
+    height: 10px;
+    /* Adjust height of the trail */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Adjust color and transparency */
+    border-radius: 50%;
+    pointer-events: none;
+    animation: trailAnim 1s ease forwards;
+}
+
+@keyframes trailAnim {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+/* mouse */
+/* AnimeCursorTrails.css */
+/* CursorTrail.css */
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.5;
+    }
+}
+
+.trail {
+    position: absolute;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #0ff;
+    /* Cyan for electric feel */
+    box-shadow: 0 0 8px #0ff;
+    /* Glowing effect */
+    pointer-events: none;
+    animation: flicker 1.5s infinite;
+}
+
+.expanding-ring-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999999999999;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.custom-cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.1s ease-out;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: #FF5733;
+    /* Vibrant orange */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.custom-cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #33FF57;
+    /* Vivid green */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.1s ease-out;
 }
