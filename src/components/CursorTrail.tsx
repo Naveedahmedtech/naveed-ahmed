@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const ExpandingRingCursor = () => {
     const canvasRef = useRef(null);
-    const circle = useRef({ x: 0, y: 0, radius: 0, alpha: 1, draw: false });
+    const circles = useRef([]); // Use an array to store multiple circles
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -10,47 +10,45 @@ const ExpandingRingCursor = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const updateCircle = (x, y) => {
-            if (!circle.current.draw) {
-                circle.current.x = x;
-                circle.current.y = y;
-                circle.current.draw = true;
-            }
+        const addCircle = (x, y) => {
+            // Add a new circle with a starting radius and alpha
+            circles.current.push({ x, y, radius: 5, alpha: 0.6 });
         };
 
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            if (circle.current.draw) {
+
+            circles.current.forEach((circle, index) => {
                 ctx.beginPath();
-                ctx.arc(circle.current.x, circle.current.y, circle.current.radius, 0, 2 * Math.PI);
-                ctx.fillStyle = `rgba(59, 130, 246, ${circle.current.alpha})`; // Using #3b82f6 with alpha for fillStyle
+                ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = `rgba(59, 130, 246, ${circle.alpha})`; // Adjust color as needed
                 ctx.shadowColor = 'rgba(59, 130, 246, 0.5)'; // Same color for the glow but with reduced opacity
-                ctx.shadowBlur = 10;
+                ctx.shadowBlur = 20; // Increase for a more pronounced glow effect
                 ctx.fill();
 
-                circle.current.radius += 0.5;
-                circle.current.alpha -= 0.01;
+                // Update the circle's properties for the next frame
+                circle.radius += .5; // Increase the speed of expansion
+                circle.alpha -= 0.02; // Adjust the fade speed as needed
 
-                if (circle.current.alpha <= 0) {
-                    circle.current.radius = 0;
-                    circle.current.alpha = 1;
-                    circle.current.draw = false;
+                // Remove the circle if it's completely faded
+                if (circle.alpha <= 0) {
+                    circles.current.splice(index, 1);
                 }
-            }
+            });
 
             requestAnimationFrame(animate);
         };
 
         animate();
 
-        document.addEventListener('mousemove', (e) => updateCircle(e.clientX, e.clientY));
+        document.addEventListener('mousemove', (e) => addCircle(e.clientX, e.clientY));
 
         return () => {
-            document.removeEventListener('mousemove', (e) => updateCircle(e.clientX, e.clientY));
+            document.removeEventListener('mousemove', (e) => addCircle(e.clientX, e.clientY));
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="expanding-ring-canvas" style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 99999999 }}></canvas>;
+    return <canvas ref={canvasRef} className="expanding-ring-canvas"></canvas>;
 };
 
 export default ExpandingRingCursor;

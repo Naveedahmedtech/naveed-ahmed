@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import hero from "../../../assets/images/hero.png";
+import React, { useState } from 'react';
 
 const ContactSection = () => {
-    // State for form inputs
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
     });
 
-    // Handle input changes
-    const handleChange = (e: any) => {
+    const [formErrors, setFormErrors] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -18,10 +21,35 @@ const ContactSection = () => {
         }));
     };
 
-    // Handle form submission
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        // Perform validation on blur (e.g., checking for empty fields or valid email format)
+        if (name === 'name' && !value.trim()) {
+            setFormErrors(prevState => ({
+                ...prevState,
+                name: 'Name is required',
+            }));
+        } else if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+            setFormErrors(prevState => ({
+                ...prevState,
+                email: 'Invalid email address',
+            }));
+        } else if (name === 'message' && !value.trim()) {
+            setFormErrors(prevState => ({
+                ...prevState,
+                message: 'Message is required',
+            }));
+        } else {
+            setFormErrors(prevState => ({
+                ...prevState,
+                [name]: '',
+            }));
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Implement your form submission logic here, such as sending the data to an email or server
+        // Implement form submission logic here
         console.log(formData);
         // Reset form after submission
         setFormData({
@@ -32,31 +60,33 @@ const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="flex flex-wrap justify-center items-center py-16 px-4 md:px-20 bg-background text-text">
-            <div className="md:w-1/2">
-                <img src={hero} alt="Contact Us" className="rounded-lg shadow-lg w-1/2" data-aos="fade-right" />
-            </div>
-            <div className="md:w-1/2 mt-10 md:mt-0" data-aos="fade-left">
-                <h2 className="text-4xl font-bold text-center md:text-left mb-10">Let's Connect</h2>
-                <form onSubmit={handleSubmit} className="max-w-lg mx-auto md:mx-0 space-y-6">
+        <section id="contact" className="py-16 px-4 md:px-20 bg-background text-text flex justify-center items-center">
+            <div className="w-full max-w-2xl">
+                <h2 className="text-4xl font-bold text-center mb-10">Let's Connect</h2>
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="mb-6">
-                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required
-                            className="form-input w-full p-3 text-sm border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-background" placeholder="Your Name" />
+                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-text">Your Name</label>
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} onBlur={handleBlur} required
+                            className={`form-input w-full p-3 text-sm text-background border-gray-300 rounded-lg focus:ring-primary focus:border-primary ${formErrors.name ? 'border-red-500' : ''}`} />
+                        {formErrors.name && <span className="text-sm text-red-500">{formErrors.name}</span>}
                     </div>
                     <div className="mb-6">
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required
-                            className="form-input w-full p-3 text-sm border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-background" placeholder="Your Email" />
+                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-text">Your Email</label>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleBlur} required
+                            className={`form-input w-full p-3 text-background text-sm border-gray-300 rounded-lg focus:ring-primary focus:border-primary ${formErrors.email ? 'border-red-500' : ''}`} />
+                        {formErrors.email && <span className="text-sm text-red-500">{formErrors.email}</span>}
                     </div>
                     <div className="mb-6">
-                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows="4" required
-                            className="form-input w-full p-3 text-sm border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-background" placeholder="Your Message"></textarea>
+                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-text">Your Message</label>
+                        <textarea id="message" name="message" value={formData.message} onChange={handleChange} onBlur={handleBlur} rows="4" required
+                            className={`form-input w-full text-background p-3 text-sm border-gray-300 rounded-lg focus:ring-primary focus:border-primary ${formErrors.message ? 'border-red-500' : ''}`} ></textarea>
+                        {formErrors.message && <span className="text-sm text-red-500">{formErrors.message}</span>}
                     </div>
-                    <button type="submit" className="w-full px-6 py-3 text-sm font-medium text-white bg-primary rounded-lg transition-colors duration-300 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                    <button type="submit" className="w-full px-6 py-3 text-sm font-medium text-white bg-primary rounded-lg shadow-lg transition-colors duration-300 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-offset-2">
                         Send Message
                     </button>
                 </form>
             </div>
-
         </section>
     );
 };
