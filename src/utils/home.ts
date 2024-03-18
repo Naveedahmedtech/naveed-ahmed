@@ -53,15 +53,15 @@ export const projects = [
     demoUrl: "https://i-can-bring-it.netlify.app/",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
-  {
-    id: 5,
-    name: "Project Five",
-    description:
-      "This is a brief description of Project Five, focusing on its innovative solutions and tech stack.",
-    image: movieImage,
-    demoUrl: "https://watchmovienow.netlify.app/",
-    codeUrl: "https://github.com/Naveedahmedtech/movie-app",
-  },
+  // {
+  //   id: 5,
+  //   name: "Project Five",
+  //   description:
+  //     "This is a brief description of Project Five, focusing on its innovative solutions and tech stack.",
+  //   image: movieImage,
+  //   demoUrl: "https://watchmovienow.netlify.app/",
+  //   codeUrl: "https://github.com/Naveedahmedtech/movie-app",
+  // },
 ];
 
 export const skills = [
