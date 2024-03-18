@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const ExpandingRingCursor = () => {
+const CursorTrail = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const circles = useRef<any>([]); // Use an array to store multiple circles
 
@@ -10,15 +10,14 @@ const ExpandingRingCursor = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const addCircle = (x:any, y:any) => {
-            // Add a new circle with a starting radius and alpha
+        const addCircle = (x: any, y: any) => {
             circles.current.push({ x, y, radius: 5, alpha: 0.6 });
         };
 
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            circles.current.forEach((circle:any, index:any) => {
+            circles.current.forEach((circle: any, index: any) => {
                 ctx.beginPath();
                 ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
                 ctx.fillStyle = `rgba(59, 130, 246, ${circle.alpha})`; // Adjust color as needed
@@ -48,7 +47,7 @@ const ExpandingRingCursor = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="expanding-ring-cursor"></canvas>;
+    return <canvas ref={canvasRef} className="expanding-ring-canvas"></canvas>;
 };
 
-export default ExpandingRingCursor;
+export default CursorTrail;

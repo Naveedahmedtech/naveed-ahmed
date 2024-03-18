@@ -13,7 +13,7 @@ const ContactSection = () => {
         message: '',
     });
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -21,9 +21,8 @@ const ContactSection = () => {
         }));
     };
 
-    const handleBlur = (e:any) => {
+    const handleBlur = (e: any) => {
         const { name, value } = e.target;
-        // Perform validation on blur (e.g., checking for empty fields or valid email format)
         if (name === 'name' && !value.trim()) {
             setFormErrors(prevState => ({
                 ...prevState,
@@ -47,11 +46,9 @@ const ContactSection = () => {
         }
     };
 
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
-        // Implement form submission logic here
         console.log(formData);
-        // Reset form after submission
         setFormData({
             name: '',
             email: '',
@@ -82,7 +79,7 @@ const ContactSection = () => {
                             className={`form-input w-full text-background p-3 text-sm border-gray-300 rounded-lg focus:ring-primary focus:border-primary ${formErrors.message ? 'border-red-500' : ''}`} ></textarea>
                         {formErrors.message && <span className="text-sm text-red-500">{formErrors.message}</span>}
                     </div>
-                    <button type="submit" className="w-full px-6 py-3 text-sm font-medium text-white bg-primary rounded-lg shadow-lg transition-colors duration-300 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-offset-2">
+                    <button type="submit" className="btn-animate-fill bg-primary text-text border-2 border-primary font-bold py-3 px-6 rounded hover:bg-background hover:text-primary transition duration-300 w-full">
                         Send Message
                     </button>
                 </form>

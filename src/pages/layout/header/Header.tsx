@@ -1,7 +1,7 @@
 import Logo from './components/Logo';
 import Navigation from './components/Navigation';
-import Home from '../../home/Home';
 import { Footer } from '..';
+import Home from '../../home/Home';
 
 const Header = () => {
     return (

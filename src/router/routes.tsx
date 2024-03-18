@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 import PrivateRouteWrapper from './components/PrivateRouteWrapper';
 import PublicRouteWrapper from './components/PublicRouteWrapper';
 import { Header } from '../pages/layout';
+import Home from '../pages/home/Home';
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -11,10 +12,8 @@ export const router = createBrowserRouter(
             </Route>
             <Route element={<PublicRouteWrapper />}>
                 <Route path="/" element={<Header />} >
-
+                    <Route index element={<Home />} />
                 </Route>
-                {/* <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} /> */}
             </Route>
         </>
     )

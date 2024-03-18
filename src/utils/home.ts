@@ -1,4 +1,7 @@
 import movieImage from "../assets/images/project-movie.png";
+import jadwali from "../assets/images/project-jadwali.png";
+import rideshare from "../assets/images/project-rideshare.png";
+import ibi from "../assets/images/project-ibi.png";
 import {
   faMobileAlt,
   faCloud,
@@ -11,43 +14,43 @@ import {
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 // Example projects data
 export const projects = [
   {
     id: 1,
-    name: "Project One",
+    name: "Movie Project",
     description:
-      "This is a brief description of Project One, highlighting its main features and technologies used.",
+      "Discover & explore movies/TVs with advanced search, filtering, ratings, trailers, and detailed cast info. Your ultimate cinema guide.",
     image: movieImage,
     demoUrl: "https://watchmovienow.netlify.app/",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
     id: 2,
-    name: "Project Two",
+    name: "Jadwali | Event Scheduling",
     description:
-      "This is a brief description of Project Two, focusing on its innovative solutions and tech stack.",
-    image: movieImage,
-    demoUrl: "https://watchmovienow.netlify.app/",
+      "Streamline your meetings and events with Jadwali’s webview scheduling. Ideal for virtual meet-ups, akin to Zoom & Google Meet integrations.",
+    image: jadwali,
+    demoUrl:
+      "https://jadwali-webview.netlify.app/free-schedule/khan-khan-z19/testing-my-word-e39",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
     id: 3,
-    name: "Project Three",
+    name: "Ride Share",
     description:
-      "This is a brief description of Project Three, focusing on its innovative solutions and tech stack.",
-    image: movieImage,
-    demoUrl: "https://watchmovienow.netlify.app/",
+      "A ride-sharing platform connecting drivers and passengers in real-time, inspired by Uber's seamless experience. Features intuitive booking and tracking.",
+    image: rideshare,
+    demoUrl: "https://rideshare-admin.netlify.app/",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
     id: 4,
-    name: "Project Four",
+    name: "I Can Bring It",
     description:
-      "This is a brief description of Project four, focusing on its innovative solutions and tech stack.",
-    image: movieImage,
-    demoUrl: "https://watchmovienow.netlify.app/",
+      "Effortlessly schedule and manage events with 'I Can Bring It'. Our platform streamlines event coordination, perfect for any gathering.",
+    image: ibi,
+    demoUrl: "https://i-can-bring-it.netlify.app/",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
@@ -61,9 +64,7 @@ export const projects = [
   },
 ];
 
-
-
-export     const skills = [
+export const skills = [
   {
     name: "Full Stack Development (MERN)",
     level: "Expert",

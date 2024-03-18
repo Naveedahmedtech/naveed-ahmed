@@ -7,7 +7,7 @@ const ProjectCard = ({ project }: any) => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3 }}
             className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
-            key={project.id}
+        // key={index}
         >
             <img src={project.image} alt={project.name} className="w-full h-64 object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 transition-opacity duration-500 hover:opacity-100 flex items-center justify-center p-6">
