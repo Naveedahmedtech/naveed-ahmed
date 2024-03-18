@@ -14,7 +14,7 @@ const ProjectCard = ({ project }: any) => {
                 <div>
                     <h3 className="mb-2 text-2xl font-semibold text-text">{project.name}</h3>
                     <p className="mb-4 text-lg text-text">{project.description}</p>
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-text font-bold py-2 px-4 rounded hover:bg-primary-dark transition duration-300">
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white font-bold py-2 px-4 rounded hover:bg-primary-dark transition duration-300">
                         View Project
                     </a>
                 </div>
