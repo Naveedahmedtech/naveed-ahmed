@@ -45,15 +45,13 @@ const HeroSection = () => {
                     I specialize in bringing your digital dreams to life, whether through stunning websites, effective web applications, or innovative online solutions. Let's create something remarkable together, using the latest in web technologies to achieve your goals.
                 </p>
                 <div className="flex flex-col md:flex-row mt-10 space-y-4 md:space-y-0 md:space-x-4 justify-center">
-                    <a href="#contact" className="btn-animate-fill bg-primary text-text border-2 border-primary font-bold py-3 px-6 rounded hover:bg-background hover:text-primary transition duration-300">
+                    <a href="#contact" className="btn-animate-fill bg-primary text-white border-2 border-primary font-bold py-3 px-6 rounded hover:bg-background hover:text-primary transition duration-300">
                         Let's Collaborate
                     </a>
                     <a href="#projects" className="btn-animate-outline bg-transparent border-2 border-primary text-primary font-bold py-3 px-6 rounded transition duration-300">
                         See My Work
                     </a>
                 </div>
-
-
             </div>
         </section>
     );

@@ -9,13 +9,15 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// Helper function to get the system theme
 const getSystemTheme = (): Theme => {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>(window.localStorage.getItem('theme') as Theme || getSystemTheme());
+    // const [theme, setTheme] = useState<Theme>(window.localStorage.getItem('theme') as Theme || getSystemTheme());
+    // const [theme, setTheme] = useState<Theme>(window.localStorage.getItem('theme') as Theme || 'dark'); // Default to 'dark'
+    const [theme, setTheme] = useState<Theme>(window.localStorage.getItem('theme') as Theme || getSystemTheme() || 'dark');
+
 
 
     useEffect(() => {

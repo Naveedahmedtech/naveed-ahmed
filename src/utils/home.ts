@@ -1,5 +1,6 @@
 import movieImage from "../assets/images/project-movie.png";
 import jadwali from "../assets/images/project-jadwali.png";
+import blog from "../assets/images/project-blog.png";
 import rideshare from "../assets/images/project-rideshare.png";
 import ibi from "../assets/images/project-ibi.png";
 import {
@@ -14,7 +15,6 @@ import {
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Example projects data
 export const projects = [
   {
     id: 1,
@@ -27,6 +27,15 @@ export const projects = [
   },
   {
     id: 2,
+    name: "Blog Project",
+    description:
+      "Explore blogs with advanced search, filtering, ratings, comments, and author info. The ultimate guide for readers and writers.",
+    image: blog,
+    demoUrl: "https://naveed-blogs.netlify.app/",
+    codeUrl: "https://github.com/Naveedahmedtech/movie-app",
+  },
+  {
+    id: 3,
     name: "Jadwali | Event Scheduling",
     description:
       "Streamline your meetings and events with Jadwali’s webview scheduling. Ideal for virtual meet-ups, akin to Zoom & Google Meet integrations.",
@@ -36,7 +45,7 @@ export const projects = [
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
-    id: 3,
+    id: 4,
     name: "Ride Share",
     description:
       "A ride-sharing platform connecting drivers and passengers in real-time, inspired by Uber's seamless experience. Features intuitive booking and tracking.",
@@ -45,7 +54,7 @@ export const projects = [
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
   {
-    id: 4,
+    id: 5,
     name: "I Can Bring It",
     description:
       "Effortlessly schedule and manage events with 'I Can Bring It'. Our platform streamlines event coordination, perfect for any gathering.",
@@ -53,15 +62,6 @@ export const projects = [
     demoUrl: "https://i-can-bring-it.netlify.app/",
     codeUrl: "https://github.com/Naveedahmedtech/movie-app",
   },
-  // {
-  //   id: 5,
-  //   name: "Project Five",
-  //   description:
-  //     "This is a brief description of Project Five, focusing on its innovative solutions and tech stack.",
-  //   image: movieImage,
-  //   demoUrl: "https://watchmovienow.netlify.app/",
-  //   codeUrl: "https://github.com/Naveedahmedtech/movie-app",
-  // },
 ];
 
 export const skills = [
