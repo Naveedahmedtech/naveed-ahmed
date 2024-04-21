@@ -10,6 +10,7 @@ export default {
         background: "var(--color-background)",
         text: "var(--color-text)",
         bgWhite: "var(--color-bg-white)",
+        bgDark: "var(--color-dark-background)",
       },
     },
   },
